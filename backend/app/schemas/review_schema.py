@@ -51,7 +51,7 @@ class ReviewRecord(BaseModel):
     price: float
 
 class ReviewCreate(BaseModel):
-    product_name: str = "DSM Pro Wireless Headphone"
+    product_name: str = "ReputeIQ SoundPro Wireless Headphone"
     category: str = "Electronics"
     rating: int = Field(..., ge=1, le=5)
     review_title: str = "Review Title"

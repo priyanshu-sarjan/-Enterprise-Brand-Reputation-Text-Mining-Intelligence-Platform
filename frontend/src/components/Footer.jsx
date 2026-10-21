@@ -12,22 +12,22 @@ export default function Footer({ onOpenLinkedIn, onOpenTypescale }) {
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center gap-1.5">
               <span className="font-extrabold text-2xl tracking-tight text-[#121826] font-['Outfit']">
-                DSM
+                ReputeIQ
               </span>
-              <span className="w-2.5 h-2.5 rounded-full bg-[#F97316] mb-1" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 mb-1" />
               <span className="text-xs font-bold text-[#64748B] pl-2 border-l border-[#CBD5E1]">
                 Intelligence Platform
               </span>
             </div>
 
             <p className="text-xs text-[#64748B] max-w-sm leading-relaxed">
-              Enterprise Brand Reputation, Net Sentiment Score (NSS) tracking, and Unsupervised LDA Root Cause Text Mining platform. Built for IIT Roorkee / NPTEL Business Analytics capstone.
+              Enterprise Brand Reputation, Net Sentiment Score (NSS) tracking, and Unsupervised LDA Root Cause Text Mining platform. Built for high-throughput enterprise SaaS & e-commerce analytics.
             </p>
 
             <div className="flex items-center gap-2 pt-1">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                IIT Roorkee · NPTEL Certified
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                Enterprise Platform v2.4 Certified
               </span>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function Footer({ onOpenLinkedIn, onOpenTypescale }) {
 
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#94A3B8] gap-4">
-          <p>© 2026 DSM Intelligence Platform · Enterprise Brand Reputation & Text Mining.</p>
+          <p>© 2026 ReputeIQ Platform · Enterprise Brand Reputation & Text Mining Intelligence.</p>
           <p className="flex items-center gap-1">
             Built with modern React, FastAPI & Scikit-Learn
           </p>

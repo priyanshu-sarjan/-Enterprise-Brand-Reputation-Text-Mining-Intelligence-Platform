@@ -283,8 +283,8 @@ export default function ModelEvaluation({ models, confusionMatrix }) {
           </div>
 
           <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] text-xs text-[#1E3A8A] leading-relaxed">
-            <strong className="block mb-1 text-[#2563EB]">IIT Roorkee Curriculum Alignment:</strong>
-            Implements the full text-mining methodology: Imputation $\rightarrow$ Contraction expansion $\rightarrow$ Negation preservation $\rightarrow$ Lemmatization $\rightarrow$ TF-IDF $\rightarrow$ Supervised Classification & Topic Modeling.
+            <strong className="block mb-1 text-[#2563EB]">Enterprise Rigor & Production Standards:</strong>
+            Implements the full end-to-end text-mining methodology: Imputation $\rightarrow$ Contraction expansion $\rightarrow$ Negation preservation $\rightarrow$ Lemmatization $\rightarrow$ TF-IDF $\rightarrow$ Supervised Classification & Latent Dirichlet Allocation (LDA).
           </div>
 
         </div>

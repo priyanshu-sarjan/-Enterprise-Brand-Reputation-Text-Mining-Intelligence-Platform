@@ -17,15 +17,15 @@ export default function ExecutiveDashboard({ kpis, trends, onNavigateToPlaygroun
   const [selectedMonth, setSelectedMonth] = useState(null);
 
   const activeKPIs = kpis || {
-    total_reviews: 1200,
-    net_sentiment_score: 42.6,
-    positive_percentage: 64.8,
-    neutral_percentage: 13.0,
-    negative_percentage: 22.2,
-    average_rating: 4.12,
-    high_urgency_count: 184,
-    high_urgency_rate: 15.3,
-    estimated_churn_arr_risk: 142800.0,
+    total_reviews: 10000,
+    net_sentiment_score: 43.4,
+    positive_percentage: 65.4,
+    neutral_percentage: 12.7,
+    negative_percentage: 22.0,
+    average_rating: 3.80,
+    high_urgency_count: 436,
+    high_urgency_rate: 4.4,
+    estimated_churn_arr_risk: 975566.01,
     top_complaint_topic: "Customer Support & Return Policy Friction"
   };
 
@@ -39,7 +39,7 @@ export default function ExecutiveDashboard({ kpis, trends, onNavigateToPlaygroun
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-[#E8E7E2]">
         <div>
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#2563EB]">
-            <span>Phase 4: Executive Business Analytics</span>
+            <span>Executive Business Analytics Engine</span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
             <span>Formula: NSS = (% Pos - % Neg)</span>
           </div>
@@ -47,7 +47,7 @@ export default function ExecutiveDashboard({ kpis, trends, onNavigateToPlaygroun
             Macro Brand Reputation & Churn Exposure
           </h2>
           <p className="text-sm text-[#64748B] mt-1 max-w-2xl">
-            Real-time aggregation of structured rating metadata and unstructured sentiment mining across 1,200+ customer reviews.
+            Real-time aggregation of structured rating metadata and unstructured sentiment mining across {(activeKPIs.total_reviews || 10000).toLocaleString()}+ customer reviews.
           </p>
         </div>
 

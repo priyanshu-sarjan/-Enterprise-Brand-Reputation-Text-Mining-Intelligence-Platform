@@ -30,25 +30,25 @@ export default function Navbar({
     <header className="sticky top-0 z-50 bg-[#FAF9F5]/95 backdrop-blur-md border-b border-slate-200/80 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Brand Logo & Academic Tag */}
+        {/* Brand Logo & Enterprise Tag */}
         <div className="flex items-center gap-3">
           <div 
             onClick={() => setActiveTab('overview')} 
             className="flex items-center gap-1.5 cursor-pointer group"
           >
-            <span className="font-extrabold text-3xl tracking-tight text-slate-900 font-['Outfit']">
-              DSM
+            <span className="font-extrabold text-2xl sm:text-3xl tracking-tight bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-900 bg-clip-text text-transparent font-['Outfit']">
+              ReputeIQ
             </span>
-            <span className="w-2.5 h-2.5 rounded-full bg-orange-500 mb-1 group-hover:scale-125 transition-transform" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 mb-1 animate-pulse" />
           </div>
 
           <div className="hidden lg:flex items-center gap-2 pl-3 border-l border-slate-200">
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200">
-              <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
-              IIT Roorkee · NPTEL
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              v2.4 Production
             </span>
             <span className="text-xs text-slate-500 font-medium hidden xl:inline">
-              Business Analytics & Text Mining
+              Enterprise Brand Reputation Platform
             </span>
           </div>
         </div>

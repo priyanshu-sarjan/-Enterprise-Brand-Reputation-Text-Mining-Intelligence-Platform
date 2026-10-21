@@ -15,18 +15,18 @@ export default function LinkedInShowcaseModal({ isOpen, onClose }) {
 
   const [copied, setCopied] = useState(false);
 
-  const linkedInPostText = `Can customer reviews predict product returns and churn before quarterly reports do?
+  const linkedInPostText = `Can real-time customer sentiment mining predict product churn and revenue risk before quarterly earnings reports?
 
-To put my IIT Roorkee (NPTEL) Business Analytics & Text Mining certification into practice, I designed and deployed an end-to-end Enterprise Brand Reputation & Triage Platform.
+I recently architected and deployed ReputeIQ — an end-to-end Enterprise Brand Reputation & Text Mining Intelligence Platform processing 10,000+ customer reviews with sub-30ms inference.
 
-Technical Highlights:
-• Processed and vectorized text with custom TF-IDF n-grams (1,2) + Lemmatization pipeline preserving critical business negations ('not', 'never', 'bad').
-• Deployed an LDA topic model (Gensim Multicore, Cv = 0.582) to isolate 5 root causes of customer attrition automatically (Battery, Build Quality, Support Friction, Delivery, and Firmware).
-• Built a full-stack interface (React + FastAPI) that classifies incoming customer feedback in sub-100ms with real-time Net Sentiment Score (NSS) tracking and churn risk exposure calculation.
+Key Architecture Highlights:
+• Scalable Text Pipeline: Vectorized with TF-IDF n-grams (1,2) + Lemmatization preserving critical business negations ('not', 'never', 'bad').
+• Latent Dirichlet Allocation (LDA): Isolates 5 key customer friction topics automatically (Battery & Charging, Build Quality, Support & Return Friction, Delivery Speed, and Firmware/App).
+• Live Executive Intelligence: Built with React & FastAPI to compute live Net Sentiment Score (NSS), detect urgent churn threats, and quantify ARR risk exposure.
 
-Live Demo & GitHub Repository link in the comments! 👇
+Live Demo & Production Service available now! 👇
 
-#NPTEL #IITRoorkee #BusinessAnalytics #NLP #DataScience #FullStack #MachineLearning #TextMining`;
+#EnterpriseAI #TextMining #MachineLearning #BrandReputation #FullStack #NLP #FastAPI #React #CustomerIntelligence`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(linkedInPostText);
@@ -53,12 +53,12 @@ Live Demo & GitHub Repository link in the comments! 👇
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0A66C2]">Phase 6 Strategy</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0A66C2]">Enterprise Launch</span>
               <span className="text-xs text-[#94A3B8]">·</span>
-              <span className="text-xs text-[#64748B] font-semibold">IIT Roorkee / NPTEL Showcase</span>
+              <span className="text-xs text-[#64748B] font-semibold">ReputeIQ Platform</span>
             </div>
             <h3 className="text-xl font-extrabold text-[#121826] font-['Outfit']">
-              LinkedIn Recruiter & Leadership Outreach Kit
+              Executive & Community Announcement Kit
             </h3>
           </div>
         </div>
@@ -105,7 +105,7 @@ Live Demo & GitHub Repository link in the comments! 👇
 
         {/* Action Footer */}
         <div className="pt-2 border-t border-[#E8E7E2] flex items-center justify-between">
-          <span className="text-xs text-[#94A3B8]">Tags: #NPTEL #IITRoorkee #TextMining</span>
+          <span className="text-xs text-[#94A3B8]">Tags: #EnterpriseAI #BrandReputation #TextMining</span>
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}

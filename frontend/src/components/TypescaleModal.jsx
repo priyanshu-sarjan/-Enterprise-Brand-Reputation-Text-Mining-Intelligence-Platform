@@ -185,7 +185,7 @@ export default function TypescaleModal({ isOpen, onClose }) {
                 <div className="text-[#64748B] font-mono text-[11px]">Size {baseNum}, Line {baseNum + 8}</div>
               </div>
               <div style={{ fontSize: `${baseNum}px`, fontFamily: typeface }} className="text-[#475569] max-w-md leading-relaxed">
-                DSM is an <span className="text-[#10B981] font-semibold">{'{ open source }'}</span> intelligence project that celebrates internal and external NLP contributions *
+                ReputeIQ is an <span className="text-[#10B981] font-semibold">{'{ enterprise SaaS }'}</span> intelligence platform that empowers customer brand reputation at scale *
               </div>
             </div>
 

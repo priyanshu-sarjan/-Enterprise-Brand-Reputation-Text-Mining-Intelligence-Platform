@@ -29,7 +29,7 @@ export default function DatasetExplorer({ initialUrgentFilter = false, initialTo
 
   // New review form state
   const [newReview, setNewReview] = useState({
-    product_name: 'DSM Pro ANC Wireless Headphone',
+    product_name: 'ReputeIQ SoundPro ANC Headphone',
     category: 'Electronics',
     rating: 1,
     review_title: 'Battery defect and refund refused',
@@ -74,7 +74,7 @@ export default function DatasetExplorer({ initialUrgentFilter = false, initialTo
       setReviews([created, ...reviews]);
       setIsModalOpen(false);
       setNewReview({
-        product_name: 'DSM Pro ANC Wireless Headphone',
+        product_name: 'ReputeIQ SoundPro ANC Headphone',
         category: 'Electronics',
         rating: 1,
         review_title: '',

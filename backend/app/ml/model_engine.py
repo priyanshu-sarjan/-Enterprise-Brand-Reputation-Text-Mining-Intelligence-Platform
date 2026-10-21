@@ -266,7 +266,7 @@ class ModelEngine:
         records = []
 
         products = [
-            ("DSM Pro ANC Wireless Headphone", "Electronics", 149.99),
+            ("ReputeIQ SoundPro ANC Headphone", "Electronics", 149.99),
             ("Aura Pods Active Earbuds", "Audio", 89.99),
             ("Pulse Fitness Smartwatch Gen 4", "Wearables", 199.99),
             ("Nova Soundbar 3.1 Atmos", "Smart Home", 249.99),
@@ -576,7 +576,7 @@ class ModelEngine:
             "id": f"REV-{len(self.reviews_df) + 10001}",
             "date": datetime.now().strftime("%Y-%m-%d"),
             "user_name": review_data.get("user_name", "Verified Customer"),
-            "product_name": review_data.get("product_name", "DSM Pro Wireless Headphone"),
+            "product_name": review_data.get("product_name", "ReputeIQ SoundPro Wireless Headphone"),
             "category": review_data.get("category", "Electronics"),
             "price": 149.99,
             "rating": review_data.get("rating", 5),

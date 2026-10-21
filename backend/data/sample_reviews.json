@@ -1,0 +1,44 @@
+[
+  {
+    "label": "\ud83d\udea8 High Churn Refund Risk",
+    "text": "The battery completely died after two days. Customer support was rude and refused my refund. Total scam and fraud, filing a credit card dispute!",
+    "sentiment": "Negative",
+    "rating": 1,
+    "is_urgent": true
+  },
+  {
+    "label": "\ud83d\udd0b Battery Degradation",
+    "text": "Battery drains from 100% to 15% in just two hours of minimal usage. USB-C port gets boiling hot while charging.",
+    "sentiment": "Negative",
+    "rating": 1,
+    "is_urgent": true
+  },
+  {
+    "label": "\ud83c\udfa7 5-Star Audiophile Praise",
+    "text": "Soundstage is expansive, crisp highs and deep punchy bass. Battery lasts easily 35 hours. Best investment this quarter!",
+    "sentiment": "Positive",
+    "rating": 5,
+    "is_urgent": false
+  },
+  {
+    "label": "\ud83d\udce6 Crushed Packaging",
+    "text": "The outer box arrived damaged and torn open, but the internal headphones were thankfully intact. Carrier tracking was delayed.",
+    "sentiment": "Neutral",
+    "rating": 3,
+    "is_urgent": false
+  },
+  {
+    "label": "\u2696\ufe0f Negation Nuance ('Not bad')",
+    "text": "Honestly not bad at all for the price point. Build quality is solid and microphone captures voice clearly.",
+    "sentiment": "Positive",
+    "rating": 4,
+    "is_urgent": false
+  },
+  {
+    "label": "\ud83d\udcf1 Companion App Bluetooth Glitch",
+    "text": "Headphone hardware is acceptable, but the companion smartphone app crashes repeatedly on Android 14 and drops connection.",
+    "sentiment": "Neutral",
+    "rating": 3,
+    "is_urgent": false
+  }
+]

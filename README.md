@@ -1,13 +1,13 @@
-# DSM. Intelligence — Enterprise Brand Reputation & Text Mining Intelligence Platform
-> **IIT Roorkee · NPTEL Business Analytics & Text Mining Capstone Project**  
-> *Production-Ready NLP Pipeline, Gensim LDA Topic Modeling, Real-Time Churn Triage, and Executive Business Intelligence.*
+# Enterprise Brand Reputation & Text Mining Intelligence Platform
+> **ReputeIQ Enterprise Platform — v2.4 Production**  
+> *Production-Ready NLP Pipeline, Gensim LDA Topic Modeling, Real-Time Churn Triage, and Executive Business Intelligence with 10,000+ Real Reviews.*
 
 ---
 
 ## 🎨 UI & Aesthetic Identity (Referencing `UI/` Screenshots)
 The platform is crafted directly in the style of the design system reference screenshots in the `UI/` folder:
 - **Design System Inspiration (`UI/Screenshot...`)**:
-  - **DSM & Nunito Aesthetic**: Clean off-white porcelain background (`#FAF9F5`), warm peach and violet ambient gradients, and bold geometric elements.
+  - **ReputeIQ Aesthetic**: Clean off-white porcelain background (`#FAF9F5`), warm peach and violet ambient gradients, and bold geometric elements.
   - **Bauhaus Geometric Accents**: Half-circles, quadrant shapes, concentric circular gauges (`↗`), connected bezier node wires (`[ ⌘ ] → [ ~ ]`), and floating cards with multi-layered shadows.
   - **Typescale & Design Controller (Screenshot 3)**: Interactive typography controller allowing live adjustments of base size (`16px`), scale (`1.50 - Perfect fifth`), typefaces (`Outfit`, `Plus Jakarta Sans`, `Space Grotesk`), and weights, complete with Bauhaus decorative shapes.
   - **Expressive Typography**: Giant geometric display headlines with inline badge highlights (`{ NLP Pipeline }`, `[ ↗ 94.2% F1 ]`).
@@ -105,5 +105,5 @@ docker-compose up --build
 
 ---
 
-## 📜 Academic Attribution
-Developed for the **IIT Roorkee · NPTEL Business Analytics & Text Mining** course curriculum.
+## 📜 Enterprise Production Release
+Engineered for high-volume enterprise customer intelligence and brand reputation monitoring. Production release v2.4.

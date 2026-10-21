@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MouseGlowBackground } from './MouseGlowBackground';
 import { InteractivePipelineVisual } from './InteractivePipelineVisual';
-import { Sparkles, ArrowRight, Zap } from 'lucide-react';
+import { Sparkles, ArrowRight, Zap, RefreshCw, ExternalLink } from 'lucide-react';
+import { analyzeLiveDirect, fetchSamples } from '../services/api';
 
-const SCENARIOS = [
+const DEFAULT_SCENARIOS = [
   { 
     label: "🚨 High Churn Refund Risk", 
     text: "Product stopped working within 2 days. Customer support hung up and refused refund. Filing a fraud dispute!" 
@@ -17,8 +18,8 @@ const SCENARIOS = [
     text: "Soundstage is expansive, crisp highs and punchy bass. Unbelievable comfort. Best purchase of the year!" 
   },
   { 
-    label: "📦 Crushed Packaging", 
-    text: "The outer box arrived damaged and taped together, but the internal hardware was intact." 
+    label: "📦 Logistics Damage", 
+    text: "The outer box arrived crushed and taped together, but the internal hardware was surprisingly intact." 
   },
   { 
     label: "⚖️ Negation Nuance ('Not bad')", 
@@ -28,17 +29,62 @@ const SCENARIOS = [
 
 export const HeroSection = ({ onSelectPreset, onSearch, kpis }) => {
   const [inputText, setInputText] = useState("");
+  const [scenarios, setScenarios] = useState(DEFAULT_SCENARIOS);
+  const [activeAnalysis, setActiveAnalysis] = useState(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  // Trigger analysis on text
+  const triggerAnalysis = async (textToAnalyze) => {
+    if (!textToAnalyze || !textToAnalyze.trim()) return;
+    setIsAnalyzing(true);
+    try {
+      const res = await analyzeLiveDirect(textToAnalyze.trim());
+      setActiveAnalysis(res);
+    } catch (err) {
+      console.error("Live analysis failed:", err);
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
+
+  // On mount: fetch real samples from backend and run initial benchmark review
+  useEffect(() => {
+    async function loadInitial() {
+      try {
+        const samples = await fetchSamples();
+        if (samples && Array.isArray(samples) && samples.length > 0) {
+          const mapped = samples.slice(0, 5).map(s => {
+            const isNegative = s.sentiment === 0;
+            const isPositive = s.sentiment === 2;
+            const labelPrefix = isNegative ? "🚨" : (isPositive ? "⭐" : "⚖️");
+            return {
+              label: `${labelPrefix} ${s.review_title || (isNegative ? 'Urgent Churn' : (isPositive ? 'Top Rated' : 'Neutral Voice'))}`,
+              text: s.text
+            };
+          });
+          setScenarios(mapped);
+        }
+      } catch (e) {
+        // Fallback to default scenarios
+      }
+
+      // Run initial live analysis on first scenario
+      triggerAnalysis(DEFAULT_SCENARIOS[0].text);
+    }
+
+    loadInitial();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputText.trim()) {
-      onSelectPreset(inputText.trim());
+      triggerAnalysis(inputText.trim());
     }
   };
 
   const handleScenarioClick = (scenarioText) => {
     setInputText(scenarioText);
-    onSelectPreset(scenarioText);
+    triggerAnalysis(scenarioText);
   };
 
   return (
@@ -54,7 +100,7 @@ export const HeroSection = ({ onSelectPreset, onSearch, kpis }) => {
           {/* Eyebrow Pill */}
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/80 px-3.5 py-1 text-xs font-semibold text-slate-700 shadow-xs backdrop-blur-md">
             <Sparkles className="h-3.5 w-3.5 text-blue-600" />
-            <span>Introducing Enterprise Text Mining Intelligence</span>
+            <span>ReputeIQ v2.4 Enterprise Production</span>
           </div>
 
           {/* Giant Display Headline */}
@@ -87,27 +133,50 @@ export const HeroSection = ({ onSelectPreset, onSearch, kpis }) => {
               />
               <button
                 type="submit"
-                className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 text-xs font-bold tracking-wide shadow-md transition-all hover:scale-105 active:scale-95 flex-shrink-0"
+                disabled={isAnalyzing}
+                className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 text-xs font-bold tracking-wide shadow-md transition-all hover:scale-105 active:scale-95 flex-shrink-0 disabled:opacity-75"
               >
-                <span>Analyze</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                {isAnalyzing ? (
+                  <>
+                    <RefreshCw className="h-3.5 w-3.5 animate-spin" />
+                    <span>Scoring...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Analyze</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </>
+                )}
               </button>
             </div>
           </form>
 
           {/* Live Scenario Pills */}
-          <div className="space-y-2 pt-2">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-              <span>Test Live Scenarios:</span>
-            </p>
+          <div className="space-y-2.5 pt-2">
+            <div className="flex items-center justify-between max-w-lg">
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                <span>Test Live Scenarios (Instant Scoring):</span>
+              </p>
+              {inputText && (
+                <button
+                  type="button"
+                  onClick={() => onSelectPreset && onSelectPreset(inputText)}
+                  className="text-xs text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-1 hover:underline"
+                >
+                  <span>Open Deep NLP Playground</span>
+                  <ExternalLink className="w-3 h-3" />
+                </button>
+              )}
+            </div>
+
             <div className="flex flex-wrap gap-2">
-              {SCENARIOS.map((s, idx) => (
+              {scenarios.map((s, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => handleScenarioClick(s.text)}
-                  className="rounded-full border border-slate-200 bg-white/90 px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-xs hover:border-blue-300 hover:bg-blue-50/50 hover:text-blue-700 transition-all active:scale-95"
+                  className="rounded-full border border-slate-200 bg-white/95 px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-xs hover:border-blue-400 hover:bg-blue-50/70 hover:text-blue-700 transition-all active:scale-95 text-left"
                 >
                   {s.label}
                 </button>
@@ -117,9 +186,12 @@ export const HeroSection = ({ onSelectPreset, onSearch, kpis }) => {
 
         </div>
 
-        {/* Right Column: 3D Living Card (5 Cols) */}
+        {/* Right Column: 3D Living Card (5 Cols) with live inference */}
         <div className="lg:col-span-5 flex justify-center items-center">
-          <InteractivePipelineVisual />
+          <InteractivePipelineVisual 
+            analysis={activeAnalysis} 
+            isAnalyzing={isAnalyzing} 
+          />
         </div>
 
       </div>
@@ -140,4 +212,5 @@ export const HeroSection = ({ onSelectPreset, onSearch, kpis }) => {
     </section>
   );
 };
+
 export default HeroSection;

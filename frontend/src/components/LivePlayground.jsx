@@ -351,7 +351,7 @@ export default function LivePlayground({ initialText = '' }) {
                 {result.preprocessing?.preserved_negations && result.preprocessing.preserved_negations.length > 0 && (
                   <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200">
                     <span className="text-[11px] font-bold text-emerald-800 block mb-1">
-                      Business Negation Preserved (IIT Roorkee Specification):
+                      Business Negation Preserved (Enterprise NLP Specification):
                     </span>
                     <div className="flex gap-2">
                       {result.preprocessing.preserved_negations.map((neg, i) => (

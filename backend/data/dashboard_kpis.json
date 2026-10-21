@@ -1,0 +1,18 @@
+{
+  "total_reviews": 10000,
+  "net_sentiment_score": 43.4,
+  "positive_percentage": 65.4,
+  "neutral_percentage": 12.7,
+  "negative_percentage": 22.0,
+  "sentiment_breakdown": {
+    "positive": 6538,
+    "neutral": 1266,
+    "negative": 2196
+  },
+  "high_urgency_count": 436,
+  "high_urgency_rate": 4.4,
+  "avg_rating": 3.8,
+  "estimated_churn_arr_risk": 975566.01,
+  "topic_count": 5,
+  "top_complaint_topic": "Customer Support & Return Policy Friction"
+}

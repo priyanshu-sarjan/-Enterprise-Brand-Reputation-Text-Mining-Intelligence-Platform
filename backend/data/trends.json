@@ -1,0 +1,110 @@
+[
+  {
+    "month": "2025-11",
+    "positive_count": 564,
+    "neutral_count": 107,
+    "negative_count": 172,
+    "total_count": 843,
+    "net_sentiment_score": 46.5,
+    "avg_rating": 3.85
+  },
+  {
+    "month": "2025-12",
+    "positive_count": 531,
+    "neutral_count": 120,
+    "negative_count": 164,
+    "total_count": 815,
+    "net_sentiment_score": 45.0,
+    "avg_rating": 3.82
+  },
+  {
+    "month": "2026-01",
+    "positive_count": 558,
+    "neutral_count": 98,
+    "negative_count": 193,
+    "total_count": 849,
+    "net_sentiment_score": 43.0,
+    "avg_rating": 3.79
+  },
+  {
+    "month": "2026-02",
+    "positive_count": 469,
+    "neutral_count": 92,
+    "negative_count": 154,
+    "total_count": 715,
+    "net_sentiment_score": 44.1,
+    "avg_rating": 3.82
+  },
+  {
+    "month": "2026-03",
+    "positive_count": 540,
+    "neutral_count": 107,
+    "negative_count": 195,
+    "total_count": 842,
+    "net_sentiment_score": 41.0,
+    "avg_rating": 3.73
+  },
+  {
+    "month": "2026-04",
+    "positive_count": 518,
+    "neutral_count": 86,
+    "negative_count": 168,
+    "total_count": 772,
+    "net_sentiment_score": 45.3,
+    "avg_rating": 3.86
+  },
+  {
+    "month": "2026-05",
+    "positive_count": 561,
+    "neutral_count": 106,
+    "negative_count": 202,
+    "total_count": 869,
+    "net_sentiment_score": 41.3,
+    "avg_rating": 3.76
+  },
+  {
+    "month": "2026-06",
+    "positive_count": 537,
+    "neutral_count": 111,
+    "negative_count": 179,
+    "total_count": 827,
+    "net_sentiment_score": 43.3,
+    "avg_rating": 3.77
+  },
+  {
+    "month": "2026-07",
+    "positive_count": 540,
+    "neutral_count": 98,
+    "negative_count": 189,
+    "total_count": 827,
+    "net_sentiment_score": 42.4,
+    "avg_rating": 3.78
+  },
+  {
+    "month": "2026-08",
+    "positive_count": 589,
+    "neutral_count": 106,
+    "negative_count": 189,
+    "total_count": 884,
+    "net_sentiment_score": 45.2,
+    "avg_rating": 3.81
+  },
+  {
+    "month": "2026-09",
+    "positive_count": 529,
+    "neutral_count": 113,
+    "negative_count": 191,
+    "total_count": 833,
+    "net_sentiment_score": 40.6,
+    "avg_rating": 3.77
+  },
+  {
+    "month": "2026-10",
+    "positive_count": 429,
+    "neutral_count": 81,
+    "negative_count": 138,
+    "total_count": 648,
+    "net_sentiment_score": 44.9,
+    "avg_rating": 3.82
+  }
+]

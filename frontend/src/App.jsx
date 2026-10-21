@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ExecutiveDashboard from './components/ExecutiveDashboard';
@@ -61,24 +62,24 @@ export default function App() {
   const handleSelectPreset = (text) => {
     setPlaygroundText(text);
     setActiveTab('playground');
-    window.scrollTo({ top: 380, behavior: 'smooth' });
+    window.scrollTo({ top: 480, behavior: 'smooth' });
   };
 
   const handleQuickAnalyze = () => {
     setActiveTab('playground');
-    window.scrollTo({ top: 380, behavior: 'smooth' });
+    window.scrollTo({ top: 480, behavior: 'smooth' });
   };
 
   const handleFilterUrgent = () => {
     setDatasetUrgentFilter(true);
     setActiveTab('dataset');
-    window.scrollTo({ top: 380, behavior: 'smooth' });
+    window.scrollTo({ top: 480, behavior: 'smooth' });
   };
 
   const handleSelectTopicForTriage = (topicName) => {
     setDatasetTopicFilter(topicName);
     setActiveTab('dataset');
-    window.scrollTo({ top: 380, behavior: 'smooth' });
+    window.scrollTo({ top: 480, behavior: 'smooth' });
   };
 
   return (
@@ -93,14 +94,17 @@ export default function App() {
         onQuickAnalyze={handleQuickAnalyze}
       />
 
-      {/* Hero Section (Aesthetic matching UI Screenshots 1, 4, 5, 6) */}
+      {/* Hero Section Slideshow (Dynamically presents the active feature with slide transitions) */}
       <HeroSection
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
         onSelectPreset={handleSelectPreset}
         onSearch={handleSelectPreset}
         kpis={kpis}
+        topics={topics}
       />
 
-      {/* Main Content Area Container */}
+      {/* Main Content Area Container with Smooth Slide-in Animations */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         {/* Navigation Tabs Bar for mobile / secondary navigation */}
@@ -126,42 +130,52 @@ export default function App() {
           ))}
         </div>
 
-        {/* Tab Views */}
-        {activeTab === 'overview' && (
-          <ExecutiveDashboard
-            kpis={kpis}
-            trends={trends}
-            onNavigateToPlayground={handleQuickAnalyze}
-            onFilterUrgent={handleFilterUrgent}
-          />
-        )}
+        {/* Tab Views Animated with AnimatePresence Slide Transition */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {activeTab === 'overview' && (
+              <ExecutiveDashboard
+                kpis={kpis}
+                trends={trends}
+                onNavigateToPlayground={handleQuickAnalyze}
+                onFilterUrgent={handleFilterUrgent}
+              />
+            )}
 
-        {activeTab === 'topics' && (
-          <TopicExplorer
-            topics={topics}
-            onSelectTopicForTriage={handleSelectTopicForTriage}
-          />
-        )}
+            {activeTab === 'topics' && (
+              <TopicExplorer
+                topics={topics}
+                onSelectTopicForTriage={handleSelectTopicForTriage}
+              />
+            )}
 
-        {activeTab === 'playground' && (
-          <LivePlayground
-            initialText={playgroundText}
-          />
-        )}
+            {activeTab === 'playground' && (
+              <LivePlayground
+                initialText={playgroundText}
+              />
+            )}
 
-        {activeTab === 'models' && (
-          <ModelEvaluation
-            models={models}
-            confusionMatrix={confusionMatrix}
-          />
-        )}
+            {activeTab === 'models' && (
+              <ModelEvaluation
+                models={models}
+                confusionMatrix={confusionMatrix}
+              />
+            )}
 
-        {activeTab === 'dataset' && (
-          <DatasetExplorer
-            initialUrgentFilter={datasetUrgentFilter}
-            initialTopicFilter={datasetTopicFilter}
-          />
-        )}
+            {activeTab === 'dataset' && (
+              <DatasetExplorer
+                initialUrgentFilter={datasetUrgentFilter}
+                initialTopicFilter={datasetTopicFilter}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
 
       </main>
 

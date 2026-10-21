@@ -107,7 +107,7 @@ export default function DatasetExplorer({ initialUrgentFilter = false, initialTo
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `dsm_reviews_export_${Date.now()}.csv`);
+    link.setAttribute("download", `reputeiq_reviews_export_${Date.now()}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -127,7 +127,7 @@ export default function DatasetExplorer({ initialUrgentFilter = false, initialTo
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#2563EB]">
             <span>Phase 1: Structured & Unstructured Dataset Triage</span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
-            <span>1,200 Indexed Records</span>
+            <span>10,000 Indexed Records</span>
           </div>
           <h2 className="text-3xl font-extrabold text-[#121826] font-['Outfit'] mt-1">
             Customer Review Intelligence Corpus

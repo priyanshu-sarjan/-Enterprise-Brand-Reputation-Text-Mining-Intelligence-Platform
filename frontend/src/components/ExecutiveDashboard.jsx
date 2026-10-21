@@ -12,6 +12,7 @@ import {
   ShieldAlert,
   BarChart2
 } from 'lucide-react';
+import KpiGrid from './KpiGrid';
 
 export default function ExecutiveDashboard({ kpis, trends, onNavigateToPlayground, onFilterUrgent }) {
   const [selectedMonth, setSelectedMonth] = useState(null);
@@ -62,121 +63,12 @@ export default function ExecutiveDashboard({ kpis, trends, onNavigateToPlaygroun
         </div>
       </div>
 
-      {/* Top 4 KPI Cards with Bauhaus Accents */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        {/* Card 1: Net Sentiment Score (NSS) */}
-        <div className="dsm-card p-6 bg-white relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-[#EFF6FF] rounded-bl-[80px] -z-0 transition-all group-hover:scale-110" />
-          <div className="relative z-10">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Net Sentiment Score</span>
-              <span className="inline-flex items-center gap-1 text-xs font-bold text-[#10B981] bg-[#ECFDF5] px-2 py-0.5 rounded-full">
-                <TrendingUp className="w-3 h-3" />
-                +6.4% MoM
-              </span>
-            </div>
-            
-            <div className="mt-4 flex items-baseline gap-2">
-              <span className="text-4xl font-extrabold text-[#121826] font-['Outfit']">
-                {activeKPIs.net_sentiment_score > 0 ? `+${activeKPIs.net_sentiment_score}%` : `${activeKPIs.net_sentiment_score}%`}
-              </span>
-              <span className="text-xs text-[#64748B] font-medium">NSS</span>
-            </div>
-
-            {/* Distribution Bar */}
-            <div className="mt-4">
-              <div className="h-2 w-full bg-[#F1F5F9] rounded-full overflow-hidden flex">
-                <div style={{ width: `${activeKPIs.positive_percentage}%` }} className="bg-[#10B981]" title={`Positive: ${activeKPIs.positive_percentage}%`} />
-                <div style={{ width: `${activeKPIs.neutral_percentage}%` }} className="bg-[#CBD5E1]" title={`Neutral: ${activeKPIs.neutral_percentage}%`} />
-                <div style={{ width: `${activeKPIs.negative_percentage}%` }} className="bg-[#EF4444]" title={`Negative: ${activeKPIs.negative_percentage}%`} />
-              </div>
-              <div className="flex justify-between text-[11px] font-semibold text-[#64748B] mt-1.5">
-                <span className="text-[#10B981]">Pos {activeKPIs.positive_percentage}%</span>
-                <span className="text-[#94A3B8]">Neu {activeKPIs.neutral_percentage}%</span>
-                <span className="text-[#EF4444]">Neg {activeKPIs.negative_percentage}%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 2: Financial ARR Churn Risk Exposure */}
-        <div className="dsm-card p-6 bg-white relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-[#FEF2F2] rounded-bl-[80px] -z-0 transition-all group-hover:scale-110" />
-          <div className="relative z-10">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#64748B]">ARR At Churn Risk</span>
-              <span className="inline-flex items-center gap-1 text-xs font-bold text-[#EF4444] bg-[#FEF2F2] px-2 py-0.5 rounded-full">
-                <AlertTriangle className="w-3 h-3" />
-                Exposure
-              </span>
-            </div>
-
-            <div className="mt-4 flex items-baseline gap-2">
-              <span className="text-3xl font-extrabold text-[#EF4444] font-['Outfit']">
-                ${(activeKPIs.estimated_churn_arr_risk || 0).toLocaleString()}
-              </span>
-            </div>
-
-            <p className="mt-3 text-xs text-[#64748B] leading-relaxed">
-              Calculated from negative reviews among verified repeat buyers multiplied by LTV churn coefficient.
-            </p>
-          </div>
-        </div>
-
-        {/* Card 3: Average Product Rating */}
-        <div className="dsm-card p-6 bg-white relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-[#FEF3C7] rounded-bl-[80px] -z-0 transition-all group-hover:scale-110" />
-          <div className="relative z-10">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Average Rating</span>
-              <div className="flex text-[#F59E0B]">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-4 flex items-baseline gap-2">
-              <span className="text-4xl font-extrabold text-[#121826] font-['Outfit']">
-                {activeKPIs.average_rating}
-              </span>
-              <span className="text-xs text-[#64748B] font-medium">/ 5.0</span>
-            </div>
-
-            <div className="mt-3 flex items-center justify-between text-xs text-[#64748B]">
-              <span>Total Volume:</span>
-              <span className="font-bold text-[#121826]">{activeKPIs.total_reviews} Reviews</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 4: High Urgency Escalation Rate */}
-        <div className="dsm-card p-6 bg-white relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFF7ED] rounded-bl-[80px] -z-0 transition-all group-hover:scale-110" />
-          <div className="relative z-10">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Urgent Escalations</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-[#F97316] animate-pulse" />
-            </div>
-
-            <div className="mt-4 flex items-baseline gap-2">
-              <span className="text-4xl font-extrabold text-[#F97316] font-['Outfit']">
-                {activeKPIs.high_urgency_count}
-              </span>
-              <span className="text-xs text-[#F97316] font-bold">({activeKPIs.high_urgency_rate}%)</span>
-            </div>
-
-            <div className="mt-3 text-xs text-[#64748B] flex items-center justify-between">
-              <span>Top Root Cause:</span>
-              <span className="font-semibold text-[#121826] truncate max-w-[120px]" title={activeKPIs.top_complaint_topic}>
-                Support RMA
-              </span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      {/* Real Metric KPI Grid */}
+      <KpiGrid 
+        kpis={activeKPIs} 
+        onFilterUrgent={onFilterUrgent} 
+        onNavigateToPlayground={onNavigateToPlayground} 
+      />
 
       {/* 12-Month Interactive Sentiment & NSS Trend Chart */}
       <div className="dsm-card p-8 bg-white">

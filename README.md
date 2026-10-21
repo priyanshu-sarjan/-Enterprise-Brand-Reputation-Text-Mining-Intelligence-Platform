@@ -62,7 +62,7 @@ The platform is crafted directly in the style of the design system reference scr
   - *Multinomial Naive Bayes*: 88.5% Accuracy, 0.872 Macro F1
 
 ### 5. Dataset Triage & Review Stream
-- 1,200 indexed records with multi-dimensional filtering by sentiment, urgency, topic cluster, and search keywords.
+- 10,000+ indexed records with multi-dimensional filtering by sentiment, urgency, topic cluster, and search keywords.
 - Dynamic review ingestion modal to test live recalculation of KPIs.
 
 ### 6. Phase 6 LinkedIn Post Blueprint & Certification Kit

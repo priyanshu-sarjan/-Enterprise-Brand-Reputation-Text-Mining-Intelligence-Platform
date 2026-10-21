@@ -93,7 +93,7 @@ export default function ModelEvaluation({ models, confusionMatrix }) {
           <h3 className="text-lg font-bold text-[#121826] font-['Outfit']">
             Algorithm Comparative Benchmark
           </h3>
-          <span className="text-xs text-[#64748B]">Dataset: 1,200 Reviews (80/20 Train/Test Split)</span>
+          <span className="text-xs text-[#64748B]">Dataset: 10,000+ Reviews (80/20 Train/Test Split)</span>
         </div>
 
         <div className="overflow-x-auto">
